@@ -1,5 +1,4 @@
 <%- include('partials/header') %>
-
 <div class="site-wrap">
 
   <div class="site-mobile-menu site-navbar-target">
@@ -47,7 +46,7 @@
           <div class="col-12">
             <div class="row justify-content-center align-items-center text-center">
               <div class="col-lg-6">
-                <h1 data-aos="fade-up" data-aos-delay="0">1A Eğitmen Paneli</h1>
+                <h1 data-aos="fade-up" data-aos-delay="0">1A Öğrenci Paneli</h1>
 
               </div>
 
@@ -66,6 +65,8 @@
         <div class="col-lg-8 mb-5">
 
           <div class="mb-5">
+            <h1>Bu haftanın ödevi</h1>
+            <img src="1aodev.jpg" alt="1a_odev" height="400" width="700">
 
             <h2 class="text-black">Türkçe</h2>
 
@@ -78,11 +79,17 @@
                 Tarih:23.03.2020
                 </p>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/2yKUWykFm18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              
+                <h2 class="text-black">İngilizce</h2>
+                <p>24.03.2020</p>
+                <p>Açıklama : Hem akıllı telefonlardan hem de bilgisayardan ve tabletlerden giriş yapılabilmektedir. Uygulama olarak App Store ve Google Play Store'dan indirilebilir. İlk önce üye olup, üyelik işlemini tamamladıktan sonra, K12'den gelen link ile oluşturulan sınıfa direk yönlendirilmektedir. Online sınıfa eriştikten sonra, o sınıfın tüm üniteleri kapsayan konular karşınıza gelmektedir, gözüken konulardan birini seçtikten sonra sol taraftaki seçeneklerle kartlar, sorularla öğrenme, flaş kartlar, test, dinleme ve yazma uygulamaları, quiz, oyunlar gibi seçeneklerle uygulama ve pekiştirme yapılabiliniyor. Aynı zamanda, yukarıdaki arama motoruna o konu başlığını yazdıktan sonra da farklı alternatifler karşınıza çıkıp ekstra pratikler ve çalışmalar yapılabiliyor.</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/W0EXieZ95PM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 
 
           </div>
+
+
 
           <div class="pt-5">
 
@@ -90,7 +97,7 @@
 
             <div class="comment-form-wrap pt-5" data-aos="fade-up" data-aos-delay="500">
                 <h3 class="mb-5">Yorum Ekleyin</h3>
-                   <form action="/1teacher" method="POST">
+                   <form action="/1astudent" method="POST">
                          <div class="form-group">
                            <label for="id">İsminiz*</label>
                              <input type="text" name="comname" class="form-control" required>
