@@ -1,4 +1,5 @@
 <%- include('partials/header') %>
+
 <div class="site-wrap">
 
   <div class="site-mobile-menu site-navbar-target">
@@ -46,7 +47,7 @@
           <div class="col-12">
             <div class="row justify-content-center align-items-center text-center">
               <div class="col-lg-6">
-                <h1 data-aos="fade-up" data-aos-delay="0">1A Öğrenci Paneli</h1>
+                <h1 data-aos="fade-up" data-aos-delay="0">Deneme Paneli</h1>
 
               </div>
 
@@ -63,50 +64,52 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mb-5">
+          <div id="player"></div>
 
-          <div class="mb-5">
-            <h1>Bu haftanın ödevi</h1>
-            <img src="1aodev.jpg" alt="1a_odev" height="400" width="700">
-            <h1>1. Hafta</h1>
-            <h2 class="text-black">Türkçe</h2>
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
 
-            <p>
-              Tarih:23.03.2020
-              </p>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/oeLC4SyULkA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              <p>
-                Tarih:25.03.2020
-                </p>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/iW1e05M6iPo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-              <h2 class="text-black">Matematik</h2>
-              <p>
-                Tarih:23.03.2020
-                </p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/2yKUWykFm18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <p>
-                  Tarih:25.03.2020
-                  </p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/7JLSgVrb_BU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: 'M7lc1UVf-VE',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+        
 
-                <h2 class="text-black">İngilizce</h2>
-                <p>24.03.2020</p>
-                <p>Açıklama : Hem akıllı telefonlardan hem de bilgisayardan ve tabletlerden giriş yapılabilmektedir. Uygulama olarak App Store ve Google Play Store'dan indirilebilir. İlk önce üye olup, üyelik işlemini tamamladıktan sonra, K12'den gelen link ile oluşturulan sınıfa direk yönlendirilmektedir. Online sınıfa eriştikten sonra, o sınıfın tüm üniteleri kapsayan konular karşınıza gelmektedir, gözüken konulardan birini seçtikten sonra sol taraftaki seçeneklerle kartlar, sorularla öğrenme, flaş kartlar, test, dinleme ve yazma uygulamaları, quiz, oyunlar gibi seçeneklerle uygulama ve pekiştirme yapılabiliniyor. Aynı zamanda, yukarıdaki arama motoruna o konu başlığını yazdıktan sonra da farklı alternatifler karşınıza çıkıp ekstra pratikler ve çalışmalar yapılabiliyor.</p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/W0EXieZ95PM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <h1>2. Hafta</h1>
-                <h2 class = "text-black">Türkçe</h2>
-                <p>
-                  Tarih:30.03.2020
-                  </p>
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/Z9rgDaLS0yo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  <p>
-                    Tarih:30.03.2020
-                    </p>
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/sRA1NXxdnAQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      }
 
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
 
-          </div>
-
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    </script>
 
 
           <div class="pt-5">
@@ -115,7 +118,7 @@
 
             <div class="comment-form-wrap pt-5" data-aos="fade-up" data-aos-delay="500">
                 <h3 class="mb-5">Yorum Ekleyin</h3>
-                   <form action="/1astudent" method="POST">
+                   <form action="/3astudent" method="POST">
                          <div class="form-group">
                            <label for="id">İsminiz*</label>
                              <input type="text" name="comname" class="form-control" required>

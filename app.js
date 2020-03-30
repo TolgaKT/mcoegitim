@@ -205,6 +205,10 @@ app.get("/submit",function(req,res){
   }
 })
 
+app.get("/deneme",function(req,res){
+  res.render("deneme");
+})
+
 app.post("/register", function(req, res){
   const submittedGrade = req.body.grade;
   const submittedBranch = req.body.branch;
