@@ -11,7 +11,8 @@ const passportLocalMongoose = require("passport-local-mongoose");
 
 const app = express();
 
-
+secret_key = process.env.SECRET_KEY.toString();
+db_con = process.env.DB_CON.toString();
 
 app.use(express.static("public"));
 app.set("view engine","ejs");
@@ -20,7 +21,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(session({
-  secret:"secret_key",
+  secret:secret_key,
   resave: false,
   saveUninitialized: false
 }));
@@ -28,7 +29,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("Database-connection-string",{useNewUrlParser:true,useUnifiedTopology: true});
+mongoose.connect(db_con,{useNewUrlParser:true,useUnifiedTopology: true});
 mongoose.set("useCreateIndex",true);
 const userSchema = new mongoose.Schema({
   email: String,
