@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(session({
-  secret:"Our little secret",
+  secret:"secret_key",
   resave: false,
   saveUninitialized: false
 }));
@@ -28,7 +28,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb+srv://tolga-admin:a9znk8xyhsvg@cluster0-fn9wb.mongodb.net/mcoOnline",{useNewUrlParser:true,useUnifiedTopology: true});
+mongoose.connect("Database-connection-string",{useNewUrlParser:true,useUnifiedTopology: true});
 mongoose.set("useCreateIndex",true);
 const userSchema = new mongoose.Schema({
   email: String,
